@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
 import Postas from "./Postas";
+import NaujasPostas from "./NaujasPostas";
 
 
 function App() {
@@ -18,7 +19,6 @@ function App() {
     }, [])
     
     const trinimas = (id) => {
-        console.log(id);
         axios.delete("https://jsonplaceholder.typicode.com/posts/" + id)
         .then(function (response) {
         })
@@ -30,10 +30,25 @@ function App() {
     const crud = {
         delete: trinimas,
     }
+
+    const prideti = (data) => {
+        axios.post("https://jsonplaceholder.typicode.com/posts/", {data} 
+        )
+        .then(function (response) {
+        })
+        .catch(function (error) {
+            console.log(error);
+          })
+
+    }
  
     return (
-        <div className="postu-container" >
-            {postai.map(postas=> <Postas key={postas.id} data={postas} crud={crud} ></Postas>  )}
+        <div className="main-container">
+              <NaujasPostas prideti={prideti} ></NaujasPostas>
+
+            <div className="postu-container" >
+                {postai.map(postas=> <Postas key={postas.id} data={postas} crud={crud} ></Postas>  )}
+            </div>
         </div>
     )
 }

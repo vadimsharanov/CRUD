@@ -6,7 +6,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
       display: flex;
       justify-content: center;
-      padding: 20px;
+      margin: 20px;
+      vertical-align: top;
+      box-sizing: border-box;
 }
 
 code {
@@ -14,7 +16,9 @@ code {
     monospace;
 }
 
+
 .postu-container {
+  padding: 20px;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -26,24 +30,39 @@ code {
     background-color:bisque;
     padding: 20px;
     justify-content: center;
-    .id {
-      background-color: cadetblue;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
+
+    
+    .id-container {
+      float: left;
+      flex-grow: 1;
+      width: 100%;
       justify-content: center;
-      margin-bottom: 10px;
-
-    }
-    .title {
-      background-color: coral;
-      display: flex;
-      font-size: 20px; 
-
+      flex-direction: row;
+      align-items: flex-start;
+      .id {
+        background-color: cadetblue;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        margin-top:auto;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        
+        
+      }
+      .title {
+        text-decoration: underline;
+        font-size: 20px; 
+        text-align: center;
+  
+      }
     }
     .body {
+      text-align: center;
+      line-height: 25px;
 
     }
     .edit {
@@ -51,12 +70,101 @@ code {
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      background-color: burlywood; 
 
       .delete-button {
         background-color: brown;
       }
     }
+  }
+}
+  .naujas-postas-konteineris {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, fr));
+  } 
+.naujas-postas {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  input {
+    margin:10px;
+  }
+  label {
+    display: inline-block;
+  }
+  .prideti {
+    margin:10px;
+  }
+  textarea {
+    width: 200px;
+    height: 55px;
+  }
+  .body-textarea {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.naujas-postas-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  width: 400px;
+  max-width: 90%;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 0 4px 10px #0004;
+}
+.form > .form-row {
+  display: flex;
+  gap: 20px;
+}
+.form > .form-row > textarea {
+  width: 100%;
+  min-height: 92px;
+  max-height: 260px;
+  resize: vertical;
+  line-height: 24px;
+  font-size: 18px;
+  padding: 10px;
+}
+.form > .form-row > input {
+  position: relative;
+  width: 100%;
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.form > .form-row > button {
+  flex-grow: 1;
+  padding: 5px 20px;
+  line-height: 20px;
+  font-size: 18px;
+}
+.form > .form-row > button.save {
+  background-color: green;
+  color: #fff;
+}
+
+.input-label {
+  text-align: center;
+  font-size: 20px;
+}
+
+
+@media (max-width: 640px) {
+  .main-container {
+  grid-column: auto / span 12;
+   margin:0;
+   width: 100%;
   }
 }
 
