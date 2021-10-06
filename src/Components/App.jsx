@@ -9,8 +9,9 @@ function App() {
     const [postai, setPostai] = useState([]);
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('http://localhost:3002/postai')
         .then(function (response) {
+            console.log(response.data)
             setPostai(response.data)
         })
         .catch(function (error) {
