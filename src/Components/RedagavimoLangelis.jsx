@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti}) {
+function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti,data}) {
 
 
     
@@ -8,6 +8,14 @@ function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti}) {
     const [userId, setUserId] = useState("")
     const [title, setTitle] =   useState("")
     const [body, setBody] =     useState("")
+
+    useEffect(() => {
+        setTitle(data.title)
+        setBody(data.body)
+        
+   
+    }, [id])
+
 
     const controller = (event, inputValue) => {
         if ("userId" === inputValue) {
@@ -20,6 +28,9 @@ function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti}) {
             setBody(event.target.value)
         }
     }
+
+
+
     const setRedaguotiInput = (e) => {
         setRedaguotiPosta(e.target.value);
         
@@ -42,7 +53,7 @@ function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti}) {
     return ( id ===0 ? null : 
         
         <div>
-            <input onChange={(e)=> controller(e,"title")} value={title} type="text" />
+        <input onChange={(e)=> controller(e,"title")} value={title} type="text" />
             <input onChange={(e)=> controller(e,"body")} value={body} type="text" />
             <button onClick={postoRedagavimas} >done</button>
             <button onClick={uzdarytiLangeli} >Close</button>
