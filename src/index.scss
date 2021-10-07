@@ -4,7 +4,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-      display: flex;
       justify-content: center;
       margin: 20px;
       vertical-align: top;
@@ -116,6 +115,7 @@ code {
 .form {
   display: flex;
   width: 400px;
+  min-width: 400px;
   max-width: 90%;
   flex-direction: column;
   gap: 15px;

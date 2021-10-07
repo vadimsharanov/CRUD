@@ -33,7 +33,7 @@ function App() {
     }
 
     const prideti = (data) => {
-        axios.post("https://jsonplaceholder.typicode.com/posts/", {data} 
+        axios.post("http://localhost:3002/postai/", {data} 
         )
         .then(function (response) {
         })
@@ -44,13 +44,14 @@ function App() {
     }
  
     return (
-        <div className="main-container">
+    <>
               <NaujasPostas prideti={prideti} ></NaujasPostas>
 
             <div className="postu-container" >
                 {postai.map(postas=> <Postas key={postas.id} data={postas} crud={crud} ></Postas>  )}
             </div>
-        </div>
+    </>
+
     )
 }
 

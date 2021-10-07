@@ -8,7 +8,6 @@ function NaujasPostas({prideti}) {
         const [body, setBody] =     useState("")
 
         const controller = (event, inputValue) => {
-            console.log(inputValue)
             if ("userId" === inputValue) {
                 setUserId(event.target.value)
             }
@@ -27,6 +26,7 @@ function NaujasPostas({prideti}) {
                 body:body,
 
             }
+            console.log(data)
             prideti(data)
         }
 
