@@ -24,19 +24,16 @@ function NaujasPostas({prideti}) {
                 userId:userId,
                 title:title,
                 body:body,
-
             }
-            console.log(data)
+            setTitle("");
+            setBody("")
             prideti(data)
+
         }
 
     return (
         <div className="naujas-postas-container"  >
         <div className="form">
-                        <span className="input-label" >User ID</span>
-                        <div className="form-row">
-                           <input onChange={(e)=> controller(e,"userId")} value={userId} type="text"/>
-                        </div>
                         <span className="input-label" >Title</span>
                         <div className="form-row">
                            <input onChange={(e)=> controller(e,"title")} value={title} type="text" />
