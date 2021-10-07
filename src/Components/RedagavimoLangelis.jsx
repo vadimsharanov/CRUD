@@ -1,23 +1,51 @@
 import React, { useState } from "react";
 
-function RedagavimoLangelis({id}) {
-    const [ redaguotiPosta, SetRedaguotiPosta ] = ("");
+function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti}) {
 
+
+    
+    const [ redaguotiPosta, setRedaguotiPosta ] = ("");
+    const [userId, setUserId] = useState("")
+    const [title, setTitle] =   useState("")
+    const [body, setBody] =     useState("")
+
+    const controller = (event, inputValue) => {
+        if ("userId" === inputValue) {
+            setUserId(event.target.value)
+        }
+        else if ("title" === inputValue) {
+            setTitle(event.target.value)
+        }
+        else if ("body" === inputValue) {
+            setBody(event.target.value)
+        }
+    }
     const setRedaguotiInput = (e) => {
-        SetRedaguotiPosta(e.target.value)
+        setRedaguotiPosta(e.target.value);
+        
     } 
-    
-    
-    if ( id===0) {
-        return null;
+    const postoRedagavimas = () => {
+        const data = {
+            userId:userId,
+            title:title,
+            body:body,
+        }
+        setTitle("");
+        setBody("")
+        redaguoti(data,id)
+        uzdarytiLangeli()
+
     }
     
-    return (
+
+    
+    return ( id ===0 ? null : 
         
         <div>
-            <input type="text" />
-            <input type="text" />
-
+            <input onChange={(e)=> controller(e,"title")} value={title} type="text" />
+            <input onChange={(e)=> controller(e,"body")} value={body} type="text" />
+            <button onClick={postoRedagavimas} >done</button>
+            <button onClick={uzdarytiLangeli} >Close</button>
         </div>
     )
 }

@@ -45,6 +45,16 @@ function App() {
             console.log(error);
           })
     }
+    const redaguoti = (data,id) => {
+        axios.put("http://localhost:3002/postai/" + id, {data} 
+        )
+        .then(function (response) {
+            setPostuKeitimoLaikas(Date.now())
+        })
+        .catch(function (error) {
+            console.log(error);
+          })
+    }
 
     const openModal = (id) => {
         setOpen(id);
@@ -55,11 +65,10 @@ function App() {
 
     return (
     <>
-            <RedagavimoLangelis id={open}  ></RedagavimoLangelis>
+            <RedagavimoLangelis id={open} redaguoti={redaguoti} uzdarytiLangeli={closeModal}  ></RedagavimoLangelis>
             <NaujasPostas   prideti={prideti} ></NaujasPostas>
-
             <div className="postu-container" >
-                {postai.map(postas=>  <Postas redagavimoLangelis={openModal} uzdarytiLangeli={closeModal} key={postas.id} data={postas} crud={crud} ></Postas>  )}
+                {postai.map(postas=>  <Postas redagavimoLangelis={openModal}  key={postas.id} data={postas} crud={crud} ></Postas>  )}
             </div>
     </>
 
