@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 import Postas from "./Postas";
 import NaujasPostas from "./NaujasPostas";
+import RedagavimoLangelis from "./RedagavimoLangelis";
 
 
 function App() {
 
     const [postai, setPostai] = useState([]);
     const [postuKeitimoLaikas, setPostuKeitimoLaikas] = useState(Date.now());
+    const [open, setOpen] = useState(0);
 
     useEffect(() => {
         axios.get('http://localhost:3002/postai')
@@ -42,15 +44,22 @@ function App() {
         .catch(function (error) {
             console.log(error);
           })
-
     }
- 
+
+    const openModal = (id) => {
+        setOpen(id);
+    }
+    const closeModal = () => {
+        setOpen(0);
+    }
+
     return (
     <>
-              <NaujasPostas prideti={prideti} ></NaujasPostas>
+            <RedagavimoLangelis id={open}  ></RedagavimoLangelis>
+            <NaujasPostas   prideti={prideti} ></NaujasPostas>
 
             <div className="postu-container" >
-                {postai.map(postas=> <Postas key={postas.id} data={postas} crud={crud} ></Postas>  )}
+                {postai.map(postas=>  <Postas redagavimoLangelis={openModal} uzdarytiLangeli={closeModal} key={postas.id} data={postas} crud={crud} ></Postas>  )}
             </div>
     </>
 

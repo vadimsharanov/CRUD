@@ -1,4 +1,4 @@
-function Postas({data, crud}) {
+function Postas({data, crud, redagavimoLangelis, uzdarytiLangeli}) {
     return (
         <>
         <div className="postas" >
@@ -8,7 +8,8 @@ function Postas({data, crud}) {
             </div>
             <div className="body" >{data.body}</div>
             <div className="edit" >
-                <h3>Edit</h3>
+                <button  onClick={()=> redagavimoLangelis(data.id)} >EDIT</button>
+                <button onClick={uzdarytiLangeli} >Close</button>
                 <div className="delete-button-container" >
                 <button className="delete-button" onClick={() => crud.delete(data.id)} >Delete</button>
                 </div>
