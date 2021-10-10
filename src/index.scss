@@ -8,7 +8,7 @@ body {
       margin: 20px;
       vertical-align: top;
       box-sizing: border-box;
-      min-width: 400px;
+      // min-width: 400px;
 }
 
 code {
@@ -31,6 +31,7 @@ code {
     background-color:bisque;
     padding: 20px;
     justify-content: center;
+    max-width: 350px;
 
     
     .id-container {
@@ -64,6 +65,7 @@ code {
     .body {
       text-align: center;
       line-height: 25px;
+      padding: 10px;
 
     }
     .edit {
@@ -138,7 +140,6 @@ code {
   padding: 10px;
 }
 .form > .form-row > input {
-  position: relative;
   width: 100%;
   padding: 0 10px;
   line-height: 30px;
@@ -159,6 +160,27 @@ code {
 .input-label {
   text-align: center;
   font-size: 20px;
+}
+
+.redagavimo-langelis {
+  background-color: cornsilk;
+  box-shadow: 1px 3px 10px;
+  opacity: 10;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  position: fixed;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: brown 2px solid;
+
+
+  input { 
+    // margin: 30px
+  }
 }
 
 

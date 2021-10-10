@@ -70,7 +70,7 @@ function App() {
             <RedagavimoLangelis id={open} redaguoti={redaguoti} uzdarytiLangeli={closeModal} data={modalPost.current}  ></RedagavimoLangelis>
             <NaujasPostas   prideti={prideti} ></NaujasPostas>
             <div className="postu-container" >
-                {postai.map(postas=>  <Postas redagavimoLangelis={openModal}  key={postas.id} data={postas} crud={crud} ></Postas>  )}
+                {postai.map(postas=>  <Postas redagavimoLangelis={openModal} index={postai.indexOf(postas)} key={postas.id} data={postas} crud={crud} ></Postas>  )}
             </div>
     </>
 
