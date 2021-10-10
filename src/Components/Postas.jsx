@@ -8,10 +8,9 @@ function Postas({data, crud, redagavimoLangelis, index}) {
             <div className="body" >{data.body}</div>
             </div>
             <div className="edit" >
-                <button  onClick={()=> redagavimoLangelis(data)} >EDIT</button>
-                <div className="delete-button-container" >
+                <button className="edit-button" onClick={()=> redagavimoLangelis(data)} >EDIT</button>
                 <button className="delete-button" onClick={() => crud.delete(data.id)} >Delete</button>
-                </div>
+
             </div>
 
             

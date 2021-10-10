@@ -52,13 +52,19 @@ function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti,data}) {
     
     return ( id ===0 ? null : 
         
-        <div className="redagavimo-langelis" >
+        <div className="redagavimo-langelis"  >
+            <div className="close-container" onClick={uzdarytiLangeli}>
+            <div className="leftright"></div>
+            <div className="rightleft"></div>
+            </div>
             <span>Title</span>
             <input onChange={(e)=> controller(e,"title")} value={title} type="text" />
             <span>Body</span>
             <textarea onChange={(e)=> controller(e,"body")} value={body} type="text" />
-            <button onClick={postoRedagavimas} >done</button>
-            <button onClick={uzdarytiLangeli} >Close</button>
+            <div className="redagavimo-mygtukai" >
+            <button onClick={postoRedagavimas} className="done-button" >done</button>
+            {/* <button onClick={uzdarytiLangeli} className="close-button" >Close</button> */}
+            </div>
         </div>
     )
 }
