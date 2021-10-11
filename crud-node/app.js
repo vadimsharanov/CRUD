@@ -32,29 +32,67 @@ app.get('/labas/:id', (req, res) => {
   res.send(`hello name idi  ${req.params.id}`)
 })
 
-app.post('/postai/', (req, res) => {
-  console.log(req.body.data.body)
-  let sql = `
-    insert into postai
-    (title, body)
-    values  ('${req.body.data.title}', '${req.body.data.body}')
-  ` 
-  connection.query(sql, (err,result) => {
-    if (err) {throw err}
-
-    res.send(result)
-  })
-
-})
 
 app.get("/postai", (req, res) => {
-    connection.query("SELECT * from postai", (err, result)=> {
+    connection.query("SELECT * from postai order by id desc", (err, result)=> {
         if (err) {
             throw err
         }
         res.json(result);
     })
 })
+
+app.get("/postai/:id", (req, res) => {
+    connection.query("SELECT * from postai order by id desc", (err, result)=> {
+        if (err) {
+            throw err
+        }
+        res.json(result);
+    })
+})
+
+
+app.post('/postai/', (req, res) => {
+  let sql = `
+    insert into postai
+    (title, body)
+    values  (?, ?)
+  `
+  connection.query(sql,[req.body.data.title, req.body.data.body], (err,result) => {
+    if (err) {throw err}
+    res.send(result)
+  })
+})
+
+app.delete('/postai/:id', (req, res) => {
+  let sql = `
+    delete from postai
+    where id = ?
+  `
+  connection.query(sql,[req.params.id], (err,result) => {
+    if (err) {throw err}
+    res.send(result)
+    console.log("Deleted");
+  })
+})
+
+// UPDATE table_name
+// SET column1 = value1, column2 = value2, ...
+// WHERE condition;
+
+app.put('/postai/:id', (req, res) => {
+  let sql = `
+    update postai
+    set title = ?, body = ?
+    where id = ?
+  `
+  connection.query(sql,[req.body.data.title, req.body.data.body,req.params.id], (err,result) => {
+    if (err) {throw err}
+    res.send(result)
+    console.log("updated!");
+  })
+})
+
 
 app.listen(PORT, () => {
   console.log(`App is listening at http://localhost:${PORT}`)

@@ -175,6 +175,10 @@ code {
 from {opacity: 0;}
 to {opacity: 3;}
 }
+@keyframes example1 {
+from {position: absolute; top:-1000px}
+to {position: fixed;transform: translate(-50%, -50%);   margin-top: 100px;}
+}
 .redagavimo-langelis {
   background-color: cornsilk;
   box-shadow: 0 20px 50px rgba(135, 144, 149, 0.7);
@@ -191,6 +195,8 @@ to {opacity: 3;}
   border: brown 2px solid;
   text-align: center;
   animation-name: example;
+  animation-duration: 1.2s;
+  animation-name: example1;
   animation-duration: 1.2s;
   margin-top: 100px;
 

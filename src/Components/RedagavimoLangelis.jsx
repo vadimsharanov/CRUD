@@ -62,7 +62,7 @@ function RedagavimoLangelis({id, uzdarytiLangeli, redaguoti,data}) {
             <span>Body</span>
             <textarea onChange={(e)=> controller(e,"body")} value={body} type="text" />
             <div className="redagavimo-mygtukai" >
-            <button onClick={postoRedagavimas} className="done-button" >done</button>
+            <button onClick={postoRedagavimas} className="done-button" >Done!</button>
             {/* <button onClick={uzdarytiLangeli} className="close-button" >Close</button> */}
             </div>
         </div>
